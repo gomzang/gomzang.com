@@ -1,0 +1,185 @@
+---
+import type { SiteContent } from "../data/content";
+
+type Props = {
+  content: SiteContent;
+};
+
+const { content } = Astro.props;
+---
+
+<div class="site-shell">
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href={content.path} aria-label="Gomzang home">
+      <span class="brand-mark" aria-hidden="true">G</span>
+      <span>Gomzang</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#approach">{content.nav.approach}</a>
+      <a href="#business">{content.nav.business}</a>
+      <a href="#product">{content.nav.product}</a>
+      <a href="#contact">{content.nav.contact}</a>
+    </nav>
+    <a class="language-toggle" href={content.alternatePath}>{content.alternateLabel}</a>
+  </header>
+
+  <main>
+    <section class="hero section-frame" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">{content.hero.eyebrow}</p>
+        <h1 id="hero-title">{content.hero.title}</h1>
+        <p class="hero-body">{content.hero.body}</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:contact@gomzang.com">{content.hero.primaryCta}</a>
+          <a class="button button-secondary" href={content.product.href} target="_blank" rel="noreferrer">
+            {content.hero.secondaryCta}
+          </a>
+        </div>
+      </div>
+
+      <aside class="intelligence-panel" aria-label={content.hero.signalTitle}>
+        <div class="panel-topline">
+          <span>{content.hero.statLabel}</span>
+          <strong>{content.hero.statValue}</strong>
+        </div>
+        <div class="multi-domain-console" aria-label={content.hero.loopValue}>
+          <div class="domain-grid">
+            {content.hero.domains.map((domain, index) => (
+              <article class={`domain-card signal-${domain.tone}`} style={`--domain-delay: ${index * 260}ms`}>
+                <div class="domain-card-header">
+                  <span>{domain.name}</span>
+                  <strong>{domain.short}</strong>
+                </div>
+                <div class="mini-bars" aria-hidden="true">
+                  {domain.values.map((value, barIndex) => (
+                    <i
+                      style={`--height: ${value}%; --peak: ${Math.min(value + 12 + ((index + barIndex) % 2) * 8, 94)}%; --bar-delay: ${index * 110 + barIndex * 70}ms`}
+                    ></i>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div class="feature-layer">
+            <span class="muted-label">{content.hero.featureLabel}</span>
+            <div class="feature-chips">
+              {content.hero.features.map((feature, index) => (
+                <span class={`feature-chip signal-${feature.tone}`} style={`--feature-delay: ${index * 520}ms`}>
+                  {feature.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div class="model-card">
+          <div>
+            <span class="muted-label">{content.hero.loopLabel}</span>
+            <strong>{content.hero.loopValue}</strong>
+          </div>
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+        <ul class="signal-list">
+          {content.hero.signalItems.map((item) => (
+            <li>
+              <span>{item.label}</span>
+              <strong>{item.value}</strong>
+              <em>{item.trend}</em>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section-block" id="approach" aria-labelledby="approach-title">
+      <div class="section-heading">
+        <p class="eyebrow">{content.approach.eyebrow}</p>
+        <h2 id="approach-title">{content.approach.title}</h2>
+        <p>{content.approach.body}</p>
+      </div>
+      <div class="pillar-grid">
+        {content.approach.pillars.map((pillar) => (
+          <article class="pillar-card">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-band" aria-labelledby="capabilities-title">
+      <div class="section-heading">
+        <p class="eyebrow">{content.capabilities.eyebrow}</p>
+        <h2 id="capabilities-title">{content.capabilities.title}</h2>
+      </div>
+      <div class="capability-list">
+        {content.capabilities.items.map((item, index) => (
+          <article class="capability-item">
+            <span class="index">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block business-section" id="business" aria-labelledby="business-title">
+      <div class="section-heading">
+        <p class="eyebrow">{content.business.eyebrow}</p>
+        <h2 id="business-title">{content.business.title}</h2>
+        <p>{content.business.body}</p>
+      </div>
+      <div class="business-grid">
+        {content.business.items.map((item) => (
+          <article>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="product-section" id="product" aria-labelledby="product-title">
+      <div class="product-visual" aria-hidden="true">
+        <div class="race-card">
+          <span>KG</span>
+          <strong>Keiba Graph</strong>
+          <div class="race-lines">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+        </div>
+        <div class="probability-ring">
+          <span>AI</span>
+        </div>
+      </div>
+      <div class="product-copy">
+        <p class="eyebrow">{content.product.eyebrow}</p>
+        <h2 id="product-title">{content.product.title}</h2>
+        <p>{content.product.body}</p>
+        <ul>
+          {content.product.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+        <a class="button button-secondary" href={content.product.href} target="_blank" rel="noreferrer">
+          {content.product.label}
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">{content.contact.eyebrow}</p>
+      <h2 id="contact-title">{content.contact.title}</h2>
+      <p>{content.contact.body}</p>
+      <a class="button button-primary" href="mailto:contact@gomzang.com">{content.contact.emailLabel}</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>{content.footer.tagline}</p>
+    <p>{content.footer.copyright}</p>
+  </footer>
+</div>

@@ -1,0 +1,11 @@
+---
+import HomePage from "../../components/HomePage.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { content } from "../../data/content";
+
+const page = content.ja;
+---
+
+<SiteLayout content={page}>
+  <HomePage content={page} />
+</SiteLayout>
