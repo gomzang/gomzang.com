@@ -18,6 +18,7 @@ const alternate = new URL(content.alternatePath, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={content.meta.description} />
     <meta name="theme-color" content="#f4f4f4" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={content.lang === "en" ? "ja" : "en"} href={alternate} />
     <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />

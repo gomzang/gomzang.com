@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Gomzang small mark</title>
+  <defs>
+    <style>
+      .ink { stroke: #101010; fill: none; stroke-linecap: butt; stroke-linejoin: round; }
+      .node { fill: #101010; }
+      .signal { fill: #22c743; }
+    </style>
+  </defs>
+  <path class="ink" stroke-width="22" d="M188 75a79 79 0 1 0 0 106" />
+  <path class="ink" stroke-width="20" d="M144 128h48" />
+  <path class="ink" stroke-width="9" d="M89 156l49-49" />
+  <circle class="node" cx="139" cy="107" r="18" />
+  <circle class="signal" cx="89" cy="156" r="18" />
+</svg>
