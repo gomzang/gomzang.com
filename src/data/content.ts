@@ -29,11 +29,10 @@ export type SiteContent = {
     domains: Array<{
       name: string;
       short: string;
-      values: number[];
-      tone: "green" | "blue" | "amber" | "red";
+      profile: number[];
     }>;
     featureLabel: string;
-    features: Array<{ code: string; label: string; tone: "green" | "blue" | "amber" | "red" }>;
+    features: Array<{ code: string; label: string; tone: "green" | "blue" | "amber" | "red" | "cyan" }>;
     signalItems: Array<{ label: string; value: string; trend: string }>;
   };
   approach: {
@@ -94,32 +93,32 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Multi-Domain Intelligence",
       title: "Multi-Domain Signal Intelligence.",
       body:
-        "We normalize environment, condition, flow, market expectation, and crowd psychology across domains, isolate Transferable Signals, then translate them back into domain-specific prediction and interpretation.",
+        "We project environment, condition, flow, market expectation, and crowd psychology onto the same feature axes across domains, isolate Transferable Signals, then translate them back into domain-specific prediction and interpretation.",
       primaryCta: "Contact us",
       secondaryCta: "View Keiba Graph",
       statLabel: "Meta Insight Layer",
       statValue: "Transferable Signals",
       signalTitle: "Transferable Signal Extraction",
       loopLabel: "Validation Loop",
-      loopValue: "Signals → Transferable Features → Domain Models",
+      loopValue: "Raw Signals → Transferable Vectors → Domain Models",
       domains: [
-        { name: "Domain A", short: "A", values: [42, 68, 54, 76], tone: "green" },
-        { name: "Domain B", short: "B", values: [58, 48, 72, 62], tone: "blue" },
-        { name: "Domain C", short: "C", values: [46, 74, 66, 52], tone: "amber" },
-        { name: "Domain D", short: "D", values: [64, 56, 44, 78], tone: "red" }
+        { name: "Domain A", short: "A", profile: [74, 42, 66, 38, 58] },
+        { name: "Domain B", short: "B", profile: [52, 68, 44, 76, 62] },
+        { name: "Domain C", short: "C", profile: [64, 36, 78, 54, 48] },
+        { name: "Domain D", short: "D", profile: [46, 72, 58, 82, 70] }
       ],
-      featureLabel: "Transferable feature space",
+      featureLabel: "Transferable feature axes",
       features: [
         { code: "ENV", label: "Environment Pressure", tone: "green" },
         { code: "COND", label: "Condition Shift", tone: "blue" },
         { code: "FLOW", label: "Flow Rhythm", tone: "amber" },
         { code: "MKT", label: "Market Distortion", tone: "red" },
-        { code: "PSY", label: "Crowd Pressure", tone: "blue" }
+        { code: "PSY", label: "Crowd Pressure", tone: "cyan" }
       ],
       signalItems: [
-        { label: "Feature Space", value: "5 axes", trend: "transferable" },
-        { label: "Ontology Graph", value: "objects+links", trend: "typed" },
-        { label: "Validation Loop", value: "JRA first", trend: "active" }
+        { label: "Feature Vectors", value: "5 axes", trend: "normalized" },
+        { label: "Transfer Layer", value: "axis reuse", trend: "validated" },
+        { label: "Domain Model", value: "JRA first", trend: "active" }
       ]
     },
     approach: {
@@ -244,32 +243,32 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Multi-Domain Intelligence",
       title: "Multi-Domain Signal Intelligence.",
       body:
-        "Environment, condition, flow, market expectation, and crowd psychologyをDomain横断でnormalizeし、Transferable Signalsとして抽出してから、各Domainのprediction / interpretationへ戻します。",
+        "Environment, condition, flow, market expectation, and crowd psychologyを同じfeature axesへprojectし、Transferable Signalsとして抽出してから、各Domainのprediction / interpretationへ戻します。",
       primaryCta: "事業相談をする",
       secondaryCta: "Keiba Graphを見る",
       statLabel: "Meta Insight Layer",
       statValue: "Transferable Signals",
       signalTitle: "Transferable Signal Extraction",
       loopLabel: "Validation Loop",
-      loopValue: "Signals → Transferable Features → Domain Models",
+      loopValue: "Raw Signals → Transferable Vectors → Domain Models",
       domains: [
-        { name: "Domain A", short: "A", values: [42, 68, 54, 76], tone: "green" },
-        { name: "Domain B", short: "B", values: [58, 48, 72, 62], tone: "blue" },
-        { name: "Domain C", short: "C", values: [46, 74, 66, 52], tone: "amber" },
-        { name: "Domain D", short: "D", values: [64, 56, 44, 78], tone: "red" }
+        { name: "Domain A", short: "A", profile: [74, 42, 66, 38, 58] },
+        { name: "Domain B", short: "B", profile: [52, 68, 44, 76, 62] },
+        { name: "Domain C", short: "C", profile: [64, 36, 78, 54, 48] },
+        { name: "Domain D", short: "D", profile: [46, 72, 58, 82, 70] }
       ],
-      featureLabel: "Transferable feature space",
+      featureLabel: "Transferable feature axes",
       features: [
         { code: "ENV", label: "Environment Pressure", tone: "green" },
         { code: "COND", label: "Condition Shift", tone: "blue" },
         { code: "FLOW", label: "Flow Rhythm", tone: "amber" },
         { code: "MKT", label: "Market Distortion", tone: "red" },
-        { code: "PSY", label: "Crowd Pressure", tone: "blue" }
+        { code: "PSY", label: "Crowd Pressure", tone: "cyan" }
       ],
       signalItems: [
-        { label: "Feature Space", value: "5 axes", trend: "transferable" },
-        { label: "Ontology Graph", value: "objects+links", trend: "typed" },
-        { label: "Validation Loop", value: "JRA first", trend: "active" }
+        { label: "Feature Vectors", value: "5 axes", trend: "normalized" },
+        { label: "Transfer Layer", value: "axis reuse", trend: "validated" },
+        { label: "Domain Model", value: "JRA first", trend: "active" }
       ]
     },
     approach: {

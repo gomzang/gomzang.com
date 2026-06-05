@@ -45,22 +45,31 @@ const { content } = Astro.props;
         <div class="multi-domain-console" aria-label={content.hero.loopValue}>
           <div class="domain-grid">
             {content.hero.domains.map((domain, index) => (
-              <article class={`domain-card signal-${domain.tone}`} style={`--domain-delay: ${index * 260}ms`}>
+              <article class="domain-card" style={`--domain-delay: ${index * 260}ms`}>
                 <div class="domain-card-header">
                   <span>{domain.name}</span>
                   <strong>{domain.short}</strong>
                 </div>
-                <div class="mini-bars" aria-hidden="true">
-                  {domain.values.map((value, barIndex) => (
-                    <i
-                      style={`--height: ${value}%; --peak: ${Math.min(value + 12 + ((index + barIndex) % 2) * 8, 94)}%; --bar-delay: ${index * 110 + barIndex * 70}ms`}
-                    ></i>
-                  ))}
+                <div class="feature-vector" aria-label={`${domain.name} feature vector`}>
+                  {domain.profile.map((value, axisIndex) => {
+                    const feature = content.hero.features[axisIndex];
+
+                    return (
+                      <div
+                        class={`vector-row signal-${feature.tone}`}
+                        style={`--strength: ${value}%; --vector-delay: ${index * 120 + axisIndex * 80}ms`}
+                      >
+                        <span>{feature.code}</span>
+                        <i aria-hidden="true"><b></b></i>
+                        <em>{value}</em>
+                      </div>
+                    );
+                  })}
                 </div>
                 <div class="domain-card-note">
-                  <span>raw stream</span>
+                  <span>raw</span>
                   <i aria-hidden="true"></i>
-                  <span>normalized</span>
+                  <span>vector</span>
                 </div>
               </article>
             ))}
@@ -92,12 +101,23 @@ const { content } = Astro.props;
           <div>
             <span class="muted-label">{content.hero.loopLabel}</span>
             <strong>{content.hero.loopValue}</strong>
+            <div class="model-flow-visual" aria-hidden="true">
+              <div class="vector-stack">
+                {content.hero.features.map((feature, index) => (
+                  <span
+                    class={`signal-${feature.tone}`}
+                    style={`--flow-width: ${[78, 66, 72, 84, 62][index]}%; --flow-delay: ${index * 180}ms`}
+                  ></span>
+                ))}
+              </div>
+              <span class="model-node">MODEL</span>
+            </div>
             <div class="loop-steps" aria-hidden="true">
-              <span>signals</span>
+              <span>raw</span>
               <i></i>
-              <span>features</span>
+              <span>vectors</span>
               <i></i>
-              <span>models</span>
+              <span>model</span>
             </div>
           </div>
           <span class="status-dot" aria-hidden="true"></span>
