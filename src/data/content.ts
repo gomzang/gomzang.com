@@ -33,7 +33,7 @@ export type SiteContent = {
       tone: "green" | "blue" | "amber" | "red";
     }>;
     featureLabel: string;
-    features: Array<{ label: string; tone: "green" | "blue" | "amber" | "red" }>;
+    features: Array<{ code: string; label: string; tone: "green" | "blue" | "amber" | "red" }>;
     signalItems: Array<{ label: string; value: string; trend: string }>;
   };
   approach: {
@@ -94,32 +94,32 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Multi-Domain Intelligence",
       title: "Multi-Domain Signal Intelligence.",
       body:
-        "We map environment, condition, flow, market expectation, and crowd psychology into a Meta Insight Layer, then translate it into domain-specific prediction and interpretation.",
+        "We normalize environment, condition, flow, market expectation, and crowd psychology across domains, isolate Transferable Signals, then translate them back into domain-specific prediction and interpretation.",
       primaryCta: "Contact us",
       secondaryCta: "View Keiba Graph",
       statLabel: "Meta Insight Layer",
-      statValue: "Multi-Domain Signals",
-      signalTitle: "Multi-Domain Signal Extraction",
-      loopLabel: "Extraction Loop",
-      loopValue: "Domains → Features → Interpretation",
+      statValue: "Transferable Signals",
+      signalTitle: "Transferable Signal Extraction",
+      loopLabel: "Validation Loop",
+      loopValue: "Signals → Transferable Features → Domain Models",
       domains: [
         { name: "Domain A", short: "A", values: [42, 68, 54, 76], tone: "green" },
         { name: "Domain B", short: "B", values: [58, 48, 72, 62], tone: "blue" },
         { name: "Domain C", short: "C", values: [46, 74, 66, 52], tone: "amber" },
         { name: "Domain D", short: "D", values: [64, 56, 44, 78], tone: "red" }
       ],
-      featureLabel: "Common features",
+      featureLabel: "Transferable feature space",
       features: [
-        { label: "Environment Pressure", tone: "green" },
-        { label: "Condition Shift", tone: "blue" },
-        { label: "Game Rhythm", tone: "amber" },
-        { label: "Market Distortion", tone: "red" },
-        { label: "Crowd Psychology", tone: "blue" }
+        { code: "ENV", label: "Environment Pressure", tone: "green" },
+        { code: "COND", label: "Condition Shift", tone: "blue" },
+        { code: "FLOW", label: "Flow Rhythm", tone: "amber" },
+        { code: "MKT", label: "Market Distortion", tone: "red" },
+        { code: "PSY", label: "Crowd Pressure", tone: "blue" }
       ],
       signalItems: [
-        { label: "Common Features", value: "5 layers", trend: "shared" },
-        { label: "Object Graph", value: "objects+links", trend: "mapped" },
-        { label: "Context Mapping", value: "JRA first", trend: "active" }
+        { label: "Feature Space", value: "5 axes", trend: "transferable" },
+        { label: "Ontology Graph", value: "objects+links", trend: "typed" },
+        { label: "Validation Loop", value: "JRA first", trend: "active" }
       ]
     },
     approach: {
@@ -141,7 +141,7 @@ export const content: Record<Locale, SiteContent> = {
         {
           title: "Context",
           body:
-            "Common Features are not copied blindly. They are translated through each domain's rules and data grammar."
+            "Transferable Features are not copied blindly. They are translated through each domain's rules and data grammar."
         }
       ]
     },
@@ -175,7 +175,7 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Business thinking",
       title: "A compounding domain insight asset.",
       body:
-        "Each domain adds new tests for the same underlying signal system. More domains mean richer Common Features, a sharper Object Graph, and better domain-specific interpretation.",
+        "Each domain adds new tests for the same underlying signal system. More domains mean richer Transferable Signals, a sharper Object Graph, and better domain-specific interpretation.",
       items: [
         {
           title: "Reusable Hypotheses",
@@ -214,7 +214,7 @@ export const content: Record<Locale, SiteContent> = {
     },
     contact: {
       eyebrow: "Contact",
-      title: "Let's productize Common Signals.",
+      title: "Let's productize Transferable Signals.",
       body:
         "Domain data, environmental variables, market signals, analytics services, reports, APIs, and partnership ideas are welcome.",
       emailLabel: "contact@gomzang.com"
@@ -244,32 +244,32 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Multi-Domain Intelligence",
       title: "Multi-Domain Signal Intelligence.",
       body:
-        "Environment, condition, flow, market expectation, and crowd psychologyをMeta Insight Layerへ統合し、Domainごとのprediction / interpretationに変換します。",
+        "Environment, condition, flow, market expectation, and crowd psychologyをDomain横断でnormalizeし、Transferable Signalsとして抽出してから、各Domainのprediction / interpretationへ戻します。",
       primaryCta: "事業相談をする",
       secondaryCta: "Keiba Graphを見る",
       statLabel: "Meta Insight Layer",
-      statValue: "Multi-Domain Signals",
-      signalTitle: "Multi-Domain Signal Extraction",
-      loopLabel: "Extraction Loop",
-      loopValue: "Domains → Features → Interpretation",
+      statValue: "Transferable Signals",
+      signalTitle: "Transferable Signal Extraction",
+      loopLabel: "Validation Loop",
+      loopValue: "Signals → Transferable Features → Domain Models",
       domains: [
         { name: "Domain A", short: "A", values: [42, 68, 54, 76], tone: "green" },
         { name: "Domain B", short: "B", values: [58, 48, 72, 62], tone: "blue" },
         { name: "Domain C", short: "C", values: [46, 74, 66, 52], tone: "amber" },
         { name: "Domain D", short: "D", values: [64, 56, 44, 78], tone: "red" }
       ],
-      featureLabel: "Common features",
+      featureLabel: "Transferable feature space",
       features: [
-        { label: "Environment Pressure", tone: "green" },
-        { label: "Condition Shift", tone: "blue" },
-        { label: "Game Rhythm", tone: "amber" },
-        { label: "Market Distortion", tone: "red" },
-        { label: "Crowd Psychology", tone: "blue" }
+        { code: "ENV", label: "Environment Pressure", tone: "green" },
+        { code: "COND", label: "Condition Shift", tone: "blue" },
+        { code: "FLOW", label: "Flow Rhythm", tone: "amber" },
+        { code: "MKT", label: "Market Distortion", tone: "red" },
+        { code: "PSY", label: "Crowd Pressure", tone: "blue" }
       ],
       signalItems: [
-        { label: "Common Features", value: "5 layers", trend: "shared" },
-        { label: "Object Graph", value: "objects+links", trend: "mapped" },
-        { label: "Context Mapping", value: "JRA first", trend: "active" }
+        { label: "Feature Space", value: "5 axes", trend: "transferable" },
+        { label: "Ontology Graph", value: "objects+links", trend: "typed" },
+        { label: "Validation Loop", value: "JRA first", trend: "active" }
       ]
     },
     approach: {
@@ -291,7 +291,7 @@ export const content: Record<Locale, SiteContent> = {
         {
           title: "Context",
           body:
-            "Common Featuresをそのままコピーせず、各Domainのrulesとdata grammarに合わせて変換します。"
+            "Transferable Featuresをそのままコピーせず、各Domainのrulesとdata grammarに合わせて変換します。"
         }
       ]
     },
@@ -325,7 +325,7 @@ export const content: Record<Locale, SiteContent> = {
       eyebrow: "Business thinking",
       title: "A compounding domain insight asset.",
       body:
-        "Each domain adds new tests for the same underlying signal system. More domains mean richer Common Features, a sharper Object Graph, and better domain-specific interpretation.",
+        "Each domain adds new tests for the same underlying signal system. More domains mean richer Transferable Signals, a sharper Object Graph, and better domain-specific interpretation.",
       items: [
         {
           title: "Reusable Hypotheses",
@@ -364,7 +364,7 @@ export const content: Record<Locale, SiteContent> = {
     },
     contact: {
       eyebrow: "Contact",
-      title: "Common Signalsを事業へ。",
+      title: "Transferable Signalsを事業へ。",
       body:
         "Domain data, environmental variables, market signals, analytics services, reports, APIs, and partnership ideas are welcome.",
       emailLabel: "contact@gomzang.com"
